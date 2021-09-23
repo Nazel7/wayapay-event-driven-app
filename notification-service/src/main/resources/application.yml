@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+
+  data:
+    mongodb:
+      uri: ${MONGO_URL}
+
+  rabbitmq:
+    host: localhost
+    port: ${RABBITMQ_PORT:56}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    topic: ${RABBITMQ_EXCHANGE}
+    queue: ${RABBITMQ_QUEUE}
+    route-key: ${RABBITMQ_ROUTE_KEY}
+
