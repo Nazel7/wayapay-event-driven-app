@@ -9,15 +9,20 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MQConfig {
 
+    @Value("${spring.rabbitmq.topic}")
+    public String EXCHANGE;
+
+    @Value("${spring.rabbitmq.routekey}")
+    public String ROUTE_KEY;
+
     public static final String QUEUE = "queue";
-    public static final String EXCHANGE = "topic";
-    public static final String ROUTE_KEY = "cm91dGVfa2V5";
 
     @Bean
     public Queue queue() {

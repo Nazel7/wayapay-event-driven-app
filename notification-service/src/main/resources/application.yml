@@ -1,10 +1,9 @@
 server:
-  port: 8081
+  port: ${PORT:80}
 
 spring:
   application:
-    name: NOTIFICATION-SERVICE
-
+    name: ${APP_NAME}
   data:
     mongodb:
       uri: ${MONGO_URL}
